@@ -1,0 +1,14 @@
+export MESASDK_ROOT=/home/software/mesasdk
+source $MESASDK_ROOT/bin/mesasdk_init.sh
+
+
+# set MESA_DIR to be the directory to which you downloaded MESA
+# The directory shown is only an example and must be modified for your particular system.
+export MESA_DIR=/home/software/mesa
+
+# set OMP_NUM_THREADS to be the number of cores on your machine
+export OMP_NUM_THREADS=2
+
+# set GYRE_DIR
+export GYRE_DIR=/home/software/gyre-master
+
