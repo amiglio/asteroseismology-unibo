@@ -1,5 +1,3 @@
-! inlist to evolve a 15 solar mass star
-
 ! For the sake of future readers of this file (yourself included),
 ! ONLY include the controls you are actually using.  DO NOT include
 ! all of the other controls that simply have their default values.
@@ -10,9 +8,19 @@
   ! begin with a pre-main sequence model
     create_pre_main_sequence_model = .true.
 
+    pre_ms_relax_num_steps = 50
+
+   ! pre_ms_relax_to_start_radiative_core
+   ! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   ! Let pre-ms model contract until just begins to have a tiny radiative core.
+   ! i.e., keep going until just after stop being fully convective.
+   ! This test starts after finish pre_ms_relax_num_steps.
+
+    pre_ms_relax_to_start_radiative_core = .false.
+
   ! save a model at the end of the run
-    save_model_when_terminate = .false.
-    save_model_filename = '15M_at_TAMS.mod'
+    save_model_when_terminate = .true.
 
   ! use profile and history files with more info wrt standard
     profile_columns_file = 'profile_asteroseismo_unibo.list'
@@ -42,6 +50,15 @@
 
 &controls
   ! see star/defaults/controls.defaults
+
+  ! How often to save profiles
+    profile_interval = 5
+
+  ! Output models for GYRE
+    write_pulse_data_with_profile = .false.
+    pulse_data_format = 'GYRE'
+    add_atmosphere_to_pulse_data = .false.
+    add_double_points_to_pulse_data = .false.
 
   ! starting specifications
     initial_mass = 15 ! in Msun units
