@@ -1,0 +1,141 @@
+! For the sake of future readers of this file (yourself included),
+! ONLY include the controls you are actually using.  DO NOT include
+! all of the other controls that simply have their default values.
+
+&star_job
+  ! see star/defaults/star_job.defaults
+
+  ! begin with a pre-main sequence model
+    create_pre_main_sequence_model = .true.
+
+    pre_ms_relax_num_steps = 50
+
+   ! pre_ms_relax_to_start_radiative_core
+   ! ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+   ! Let pre-ms model contract until just begins to have a tiny radiative core.
+   ! i.e., keep going until just after stop being fully convective.
+   ! This test starts after finish pre_ms_relax_num_steps.
+
+    pre_ms_relax_to_start_radiative_core = .false.
+
+  ! save a model at the end of the run
+    save_model_when_terminate = .true.
+
+  ! use profile and history files with more info wrt standard
+    profile_columns_file = 'profile_asteroseismo_unibo.list'
+    history_columns_file = 'history_asteroseismo_unibo.list'
+
+  ! display on-screen plots
+    pgstar_flag = .true.
+
+/ ! end of star_job namelist
+
+
+&eos
+  ! eos options
+  ! see eos/defaults/eos.defaults
+
+/ ! end of eos namelist
+
+
+&kap
+  ! kap options
+  ! see kap/defaults/kap.defaults
+  use_Type2_opacities = .true.
+  Zbase = 0.02
+
+/ ! end of kap namelist
+
+
+&controls
+  ! see star/defaults/controls.defaults
+
+  ! How often to save profiles
+    profile_interval = 5
+
+  ! How often to save history 
+    history_interval = 1
+
+  ! Output models for GYRE
+    write_pulse_data_with_profile = .true.
+    pulse_data_format = 'GYRE'
+    add_atmosphere_to_pulse_data = .true.
+    add_double_points_to_pulse_data = .true.
+
+  ! starting specifications
+    initial_mass = 1 ! in Msun units
+    initial_z = 0.02
+
+  ! when to stop
+
+    ! stop when the star nears ZAMS (Lnuc/L > 0.99)
+    Lnuc_div_L_zams_limit = 0.99d0
+    stop_near_zams = .false.
+
+    ! stop when the center mass fraction of h1 drops below this limit
+    !xa_central_lower_limit_species(1) = 'h1'
+    xa_central_lower_limit(1) = 1d-3
+
+    stop_at_phase_TP_AGB = .true
+
+  ! otherwise profiles files will overwritten 
+    max_num_profile_models = 1000
+  ! wind
+
+  ! atmosphere
+
+  ! rotation
+
+  ! element diffusion
+
+  ! mlt
+
+  ! mixing
+  ! Added controls on 1 overshooting region
+    overshoot_scheme(1) = 'exponential'
+    overshoot_zone_type(1) = 'burn_H'
+    overshoot_zone_loc(1) = 'any'
+    overshoot_bdy_loc(1) = 'top'
+
+    overshoot_scheme(3) = 'exponential'
+    overshoot_zone_type(3) = 'nonburn'
+    overshoot_zone_loc(3) = 'any'
+    overshoot_bdy_loc(3) = 'bottom'
+
+
+  ! adding overshooting on top of He burning core
+    overshoot_scheme(2) = 'exponential'
+    overshoot_zone_type(2) = 'burn_He'
+    overshoot_zone_loc(2) = 'core'
+    overshoot_bdy_loc(2) = 'top'
+
+      ! Amount of overshooting from edge of convective zone
+      ! These are arrays of size ``NUM_OVERSHOOT_PARAM_SETS`` which is defined in
+      ! ``star_data/public/star_data_def.inc`` (currently 16)
+
+      ! ::
+
+    overshoot_f(1) = 0.03
+    overshoot_f0(1) = 0.001d0
+
+    overshoot_f(3) = 0.02
+    overshoot_f0(3) = 0.001d0
+
+
+    overshoot_f(2) = 0.04
+    overshoot_f0(2) = 0.001d0
+
+    overshoot_D_min = 5d1
+
+  ! timesteps
+
+  ! mesh
+
+  ! solver
+     ! options for energy conservation (see MESA V, Section 3)
+     !energy_eqn_option = 'dedt'
+     use_gold_tolerances = .true.
+
+  ! output 
+/ ! end of controls namelist
