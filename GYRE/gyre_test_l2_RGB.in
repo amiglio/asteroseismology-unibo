@@ -1,0 +1,47 @@
+&constants
+/
+&model
+  model_type = 'EVOL'  ! Obtain stellar structure from an evolutionary model
+  file =  '/Users/miglioa/astrosoft/MesaModels/tutorial_1MsunMS/LOGS/profile167.data.GYRE'   ! File name of the evolutionary model  *** CHANGE WITH MODEL NAME ***
+  file_format = 'MESA' ! File format of the evolutionary model
+/
+&mode
+  l = 2
+  tag = 'nonradial' ! Matching tag
+/
+&osc
+  outer_bound = 'VACUUM' ! Use a zero-pressure outer mechanical boundary condition
+/
+&rot
+/
+&num
+  diff_scheme = 'COLLOC_GL6' ! 6th-order Gauss-Legendre collocation
+/
+&scan ! this model (RGB star) has a numax ~ 50 muHz
+  grid_type = 'INVERSE' ! Scan grid uniform in period
+  freq_min = 25        ! Minimum frequency to scan from (default is dimensionless)
+  freq_max = 75       ! Maximum frequency to scan to (default is dimensionless)
+  n_freq = 10000          ! Number of frequency points in scan
+  freq_units = 'UHZ'   ! Frequency units (default is dimensionless)
+
+/
+&grid
+  w_osc = 10 ! Oscillatory region weight parameter
+  w_exp = 2  ! Exponential region weight parameter
+  w_ctr = 10 ! Central region weight parameter
+/
+&ad_output
+  summary_file = 'summary_RGB_l2.txt'                         ! File name for summary file
+  summary_file_format = 'TXT'                    !File name for summary file
+  summary_item_list = 'l,n_pg,freq,freq_units,E_norm,beta, M_star,R_star,L_star,Delta_p,Delta_g' ! Items to appear in summary file
+  freq_units = 'UHZ'                          ! Units of freq output items
+
+  ! uncomment here to save files with eigenfunctions (CONSIDER RESTRICTING THE FREQUENCY SEARCH!!)
+  !detail_template = 'detail.l%l.n%n.txt'        	      ! File name template for detail files
+  !detail_file_format = 'TXT'                    !File name for detail file
+  !detail_item_list = 'l,n_pg,omega,x,xi_r,xi_h,c_1,As,V_2,Gamma_1,M_r,rho' 	      ! Items to appear in detail files
+
+
+/
+&nad_output
+/
