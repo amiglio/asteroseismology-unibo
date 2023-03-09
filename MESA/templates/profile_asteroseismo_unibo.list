@@ -42,7 +42,7 @@
  !add_reaction_categories
  pp
  cno
- tri_alfa
+ tri_alpha
  c_alpha 
  brunt_N2              ! brunt-vaisala frequency squared
  log_conv_vel          ! log10 convection velocity (cm/sec)

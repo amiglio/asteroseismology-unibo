@@ -28,7 +28,7 @@
  log_abs_Lgrav
  pp
  cno
- tri_alfa
+ tri_alpha
  c12_c12
  delta_nu ! large frequency separation for p-modes (microHz)
  delta_Pg ! g-mode period spacing for l=1 (seconds)
