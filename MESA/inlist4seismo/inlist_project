@@ -77,7 +77,7 @@
     !xa_central_lower_limit_species(1) = 'h1'
     xa_central_lower_limit(1) = 1d-3
 
-    stop_at_phase_TP_AGB = .true
+    stop_at_phase_TP_AGB = .true.
 
   ! otherwise profiles files will overwritten 
     max_num_profile_models = 1000
