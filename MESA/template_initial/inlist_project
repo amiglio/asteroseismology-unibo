@@ -23,8 +23,8 @@
     save_model_when_terminate = .true.
 
   ! use profile and history files with more info wrt standard
-    profile_columns_file = 'profile_asteroseismo_unibo.list'
-    history_columns_file = 'history_asteroseismo_unibo.list'
+  ! profile_columns_file = 'profile_asteroseismo_unibo.list'
+  ! history_columns_file = 'history_asteroseismo_unibo.list'
 
   ! display on-screen plots
     pgstar_flag = .true.
