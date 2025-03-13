@@ -54,6 +54,9 @@
   ! How often to save profiles
     profile_interval = 5
 
+  ! How often to save history file
+    history_interval = 1
+
   ! Output models for GYRE
     write_pulse_data_with_profile = .false.
     pulse_data_format = 'GYRE'
