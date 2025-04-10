@@ -2,8 +2,15 @@
 
 in this repo I will upload material useful for the computer-lab component of the module "Advanced stellar evolution and Asteroseismology"
 
+##### Pre-computed grids
+- grids (courtesy of Walter van Rossem) are available at https://liveunibo-my.sharepoint.com/:f:/g/personal/andrea_miglio_unibo_it/Ehf0tY8j4GBDo5N5CDK54fwBy5Zk5-twOecDMnVdvFfzVA?e=XJwRxW
+
+- extra tools to explore the grids: https://wsssss.readthedocs.io/latest/ 
+
 
 ##### MESA tips:
+
+- If you wish to resume the calculation starting from a previously computed model see https://docs.mesastar.org/en/latest/using_mesa/running.html#resuming-mesa (this is useful e.g. if you wish to study the impact of different choices in the inlist file but starting from a specific point in the evolution (e.g. core-He burning phase) )
 
 - If you wish to assign different names to the various runs (e.g. changing, mass, chemical composition, ...) you can set the file names adding these lines in the &controls section in the inlist_project file:
 
