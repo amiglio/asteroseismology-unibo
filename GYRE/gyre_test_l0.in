@@ -2,7 +2,7 @@
 /
 &model
   model_type = 'EVOL'  ! Obtain stellar structure from an evolutionary model
-  file =  'profile10.data.GYRE'   ! File name of the evolutionary model  *** CHANGE WITH MODEL NAME ***
+  file =  'sunlikestar.data.GYRE'   ! File name of the evolutionary model  *** CHANGE WITH MODEL NAME ***
   file_format = 'MESA' ! File format of the evolutionary model
 /
 &mode
