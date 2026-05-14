@@ -9,6 +9,8 @@ in this repo I will upload material useful for the computer-lab component of the
 
 
 ##### MESA tips:
+- if you wish to add extra variables in the history.data or profiles files have a look at MESA_DIR/star/defaults/history_columns.list 
+MESA_DIR/star/defaults/profile_columns.list . These files also contain (terse definitions) of the variables themselves
 
 - If you wish to resume the calculation starting from a previously computed model see https://docs.mesastar.org/en/latest/using_mesa/running.html#resuming-mesa (this is useful e.g. if you wish to study the impact of different choices in the inlist file but starting from a specific point in the evolution (e.g. core-He burning phase) )
 
